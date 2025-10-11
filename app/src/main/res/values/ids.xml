@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="CV3" type="id" />
+    <item name="CV2" type="id" />
+    <item name="backbtn" type="id" />
+    <item name="tvsu" type="id" />
+    <item name="tvnewacc" type="id" />
+    <item name="CV1" type="id" />
+    <item name="etUsername" type="id" />
+    <item name="LL1" type="id" />
+    <item name="signup" type="id" />
+</resources>
