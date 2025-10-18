@@ -5,10 +5,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aqeel.shredpreff.databinding.ActivitySignUpBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
+
+    private lateinit var db: FirebaseFirestore
+
+
 
     companion object {
         private const val PREF_NAME = "AppPrefs"
@@ -23,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        db= FirebaseFirestore.getInstance()
         val prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE)
 
         binding.btnSignUp.setOnClickListener {
@@ -35,8 +41,22 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val user=userModel(username,email,password)
 
-            prefs.edit()
+            db.collection("user")
+                .add(user)
+                .addOnSuccessListener{
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
+                }
+
+
+
+
+           /* prefs.edit()
                 .putString(KEY_USERNAME, username)
                 .putString(KEY_EMAIL, email)
                 .putString(KEY_PASSWORD, password)
@@ -45,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Sign Up Successful! Please login.", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            finish()*/
         }
     }
 }

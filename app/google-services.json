@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "744103879251",
+    "project_id": "fir-tutorial-ad8f5",
+    "storage_bucket": "fir-tutorial-ad8f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744103879251:android:0d699c6881e0cacf231ca6",
+        "android_client_info": {
+          "package_name": "com.aqeel.shredpreff"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBThuOS2yBFV59hNkAdWROv3-FL579M3aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
